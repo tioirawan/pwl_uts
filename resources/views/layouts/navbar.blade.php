@@ -11,8 +11,11 @@
         <li class="nav-item d-none d-sm-inline-block">
             <a href="{{ route('mahasiswa.index') }}" class="nav-link">Mahasiswa</a>
         </li>
+       <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{ route('matkul.index') }}" class="nav-link">matkul</a>
+        </li>
     </ul>
-
+    
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
         {{-- logout button --}}

@@ -42,6 +42,20 @@
                         <p>Mahasiswa</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ url('/dosen') }}"
+                        class="nav-link  {{ request()->is('dosen') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>dosen</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('/matkul') }}"
+                        class="nav-link  {{ request()->is('matkul') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>Matkul</p>
+                    </a>
+                </li>
 
             </ul>
         </nav>
