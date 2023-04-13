@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DosenController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatkulController;
@@ -24,5 +25,6 @@ Auth::routes();
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::resource('mahasiswa', MahasiswaController::class);
-    Route::get('/matkul',[MatkulController::class,'index']);
+    Route::resource('dosen', DosenController::class);
+    Route::get('/matkul',[MatkulController::class,'index'])->name('matkul');
 });
