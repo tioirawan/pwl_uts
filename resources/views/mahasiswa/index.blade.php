@@ -28,7 +28,19 @@
                 </div>
                 <div class="card-body">
 
-                    <a href="{{ url('mahasiswa/create') }}" class="btn btn-sm btn-success my-2">Tambah Data</a>
+                    <div class="d-flex justify-content-between">
+                        <a href="{{ url('mahasiswa/create') }}" class="btn btn-sm btn-success my-2">Tambah Data</a>
+                        <form action="{{ url('mahasiswa') }}" method="GET">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="search" class="form-control float-right" placeholder="Search"
+                                    value="{{ request()->search }}">
+
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
 
                     <table class="table table-bordered table-striped" id="mahasiswa-table">
                         <thead>
@@ -68,8 +80,11 @@
                                     <td colspan="6" class="text-center">Data tidak ada</td>
                                 </tr>
                             @endif
-                        </tbody>
                     </table>
+
+                    <div class="mt-4 d-flex justify-content-center">
+                        {{ $mhs->links() }}
+                    </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
@@ -81,7 +96,7 @@
         </section>
     </div>
 @endsection
-
+{{-- 
 @push('custom_js')
     <script>
         $('#mahasiswa-table').DataTable({
@@ -94,4 +109,4 @@
             "responsive": true,
         });
     </script>
-@endpush
+@endpush --}}

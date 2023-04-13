@@ -14,7 +14,19 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        $mhs = MahasiswaModel::all();
+        $query = MahasiswaModel::query();
+
+        if (request()->has('search')) {
+            $search = request()->get('search');
+
+            $query->where('nim', 'like', "%{$search}%")
+                ->orWhere('nama', 'like', "%{$search}%")
+                ->orWhere('tempat_lahir', 'like', "%{$search}%")
+                ->orWhere('alamat', 'like', "%{$search}%")
+                ->orWhere('hp', 'like', "%{$search}%");
+        }
+
+        $mhs = $query->paginate(10);
 
         return view('mahasiswa.index', compact('mhs'));
     }

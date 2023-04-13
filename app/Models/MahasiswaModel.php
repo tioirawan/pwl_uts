@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Database\Factories\MahasiswaFactory;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,4 +22,9 @@ class MahasiswaModel extends Model
         'alamat',
         'hp',
     ];
+
+    protected static function newFactory(): Factory
+    {
+        return MahasiswaFactory::new();
+    }
 }
